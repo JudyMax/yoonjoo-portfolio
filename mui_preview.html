@@ -1,0 +1,903 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MUI 스타일 예시 미리보기 — 김윤주 포트폴리오</title>
+
+    <!-- Roboto (MUI 기본 폰트) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap"
+        rel="stylesheet" />
+
+    <style>
+        /* ── MUI Material Design 3 Color Tokens ── */
+        :root {
+            --md-primary: #1976d2;
+            --md-primary-dark: #1565c0;
+            --md-primary-light: #e3f2fd;
+            --md-secondary: #9c27b0;
+            --md-surface: #ffffff;
+            --md-surface-variant: #f5f5f5;
+            --md-background: #fafafa;
+            --md-on-primary: #ffffff;
+            --md-on-surface: rgba(0, 0, 0, 0.87);
+            --md-on-surface-med: rgba(0, 0, 0, 0.6);
+            --md-on-surface-dis: rgba(0, 0, 0, 0.38);
+            --md-divider: rgba(0, 0, 0, 0.12);
+            --md-radius: 4px;
+            --md-radius-lg: 8px;
+            --md-shadow-1: 0 2px 1px -1px rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 1px 3px 0 rgba(0, 0, 0, .12);
+            --md-shadow-2: 0 3px 3px -2px rgba(0, 0, 0, .2), 0 3px 4px 0 rgba(0, 0, 0, .14), 0 1px 8px 0 rgba(0, 0, 0, .12);
+            --md-shadow-4: 0 2px 4px -1px rgba(0, 0, 0, .2), 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12);
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', 'Noto Sans KR', sans-serif;
+            background: var(--md-background);
+            color: var(--md-on-surface);
+            font-size: 0.9375rem;
+            line-height: 1.5;
+        }
+
+        a {
+            color: var(--md-primary);
+            text-decoration: none;
+        }
+
+        /* ── AppBar (MUI 가장 특징적인 요소) ── */
+        .appbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--md-primary);
+            color: var(--md-on-primary);
+            box-shadow: var(--md-shadow-4);
+            height: 64px;
+            display: flex;
+            align-items: center;
+            padding: 0 24px;
+        }
+
+        .appbar__title {
+            font-size: 1.25rem;
+            font-weight: 500;
+            letter-spacing: 0.0075em;
+            flex: 1;
+            color: #fff;
+        }
+
+        .appbar__nav {
+            display: flex;
+            gap: 8px;
+        }
+
+        .appbar__btn {
+            color: rgba(255, 255, 255, 0.9);
+            font-family: inherit;
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.02857em;
+            text-transform: uppercase;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 6px 8px;
+            border-radius: var(--md-radius);
+            transition: background 150ms;
+        }
+
+        .appbar__btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* ── Hero ── */
+        .hero {
+            background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+            color: #fff;
+            padding: 80px 24px 72px;
+        }
+
+        .hero__inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero__overline {
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 12px;
+        }
+
+        .hero__title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 300;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+
+        .hero__title strong {
+            font-weight: 700;
+        }
+
+        .hero__subtitle {
+            font-size: 1.0625rem;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 480px;
+            line-height: 1.65;
+            margin-bottom: 32px;
+        }
+
+        .hero__chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 32px;
+        }
+
+        .hero__chip {
+            background: rgba(255, 255, 255, 0.15);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 9999px;
+            padding: 4px 12px;
+            font-size: 0.8125rem;
+            font-weight: 500;
+        }
+
+        .btn-contained {
+            background: #fff;
+            color: var(--md-primary);
+            font-family: inherit;
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.02857em;
+            text-transform: uppercase;
+            height: 36px;
+            padding: 0 16px;
+            border: none;
+            border-radius: var(--md-radius);
+            cursor: pointer;
+            box-shadow: var(--md-shadow-2);
+            transition: box-shadow 150ms;
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .btn-contained:hover {
+            box-shadow: var(--md-shadow-4);
+            color: var(--md-primary);
+        }
+
+        .btn-outlined {
+            background: transparent;
+            color: #fff;
+            font-family: inherit;
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.02857em;
+            text-transform: uppercase;
+            height: 36px;
+            padding: 0 16px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: var(--md-radius);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            transition: background 150ms;
+        }
+
+        .btn-outlined:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        /* ── Strengths ── */
+        .strengths {
+            background: var(--md-surface);
+            padding: 48px 24px;
+            border-bottom: 1px solid var(--md-divider);
+        }
+
+        .strengths__inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .strengths__title {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--md-on-surface);
+            margin-bottom: 24px;
+        }
+
+        .strengths__grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        /* MUI Paper (elevation) */
+        .paper {
+            background: var(--md-surface);
+            border-radius: var(--md-radius-lg);
+            padding: 24px;
+            box-shadow: var(--md-shadow-1);
+            transition: box-shadow 200ms;
+        }
+
+        .paper:hover {
+            box-shadow: var(--md-shadow-4);
+        }
+
+        .paper__overline {
+            font-size: 0.625rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--md-primary);
+            margin-bottom: 8px;
+        }
+
+        .paper__title {
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .paper__body {
+            font-size: 0.875rem;
+            color: var(--md-on-surface-med);
+            line-height: 1.55;
+        }
+
+        /* ── Projects ── */
+        .projects {
+            padding: 48px 24px;
+            background: var(--md-background);
+        }
+
+        .projects__inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* MUI Typography */
+        .overline {
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--md-primary);
+        }
+
+        .h5 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            letter-spacing: 0;
+            color: var(--md-on-surface);
+            margin: 8px 0 24px;
+        }
+
+        /* MUI Tabs (filter) */
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid var(--md-divider);
+            margin-bottom: 24px;
+            gap: 0;
+        }
+
+        .tab {
+            font-family: inherit;
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.02857em;
+            text-transform: uppercase;
+            color: var(--md-on-surface-med);
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 12px 16px;
+            border-bottom: 2px solid transparent;
+            transition: color 150ms, border-color 150ms;
+        }
+
+        .tab:hover {
+            color: var(--md-primary);
+        }
+
+        .tab.active {
+            color: var(--md-primary);
+            border-bottom-color: var(--md-primary);
+        }
+
+        /* MUI Card */
+        .card {
+            background: var(--md-surface);
+            border-radius: var(--md-radius-lg);
+            box-shadow: var(--md-shadow-1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: box-shadow 200ms;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .card:hover {
+            box-shadow: var(--md-shadow-4);
+        }
+
+        .card__header {
+            padding: 16px 16px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .card__avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--md-primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--md-primary);
+            font-size: 0.75rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .card__meta {
+            flex: 1;
+        }
+
+        .card__company {
+            font-size: 0.75rem;
+            color: var(--md-on-surface-med);
+        }
+
+        .card__title {
+            font-size: 1rem;
+            font-weight: 500;
+            margin-top: 2px;
+        }
+
+        .card__content {
+            padding: 12px 16px;
+            flex: 1;
+        }
+
+        .card__body {
+            font-size: 0.875rem;
+            color: var(--md-on-surface-med);
+            line-height: 1.55;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card__footer {
+            padding: 8px 16px;
+            border-top: 1px solid var(--md-divider);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .card__period {
+            font-size: 0.75rem;
+            color: var(--md-on-surface-med);
+        }
+
+        /* MUI Chip */
+        .chip {
+            display: inline-flex;
+            align-items: center;
+            font-size: 0.8125rem;
+            font-weight: 400;
+            height: 32px;
+            padding: 0 12px;
+            border-radius: 9999px;
+            background: var(--md-surface-variant);
+            color: var(--md-on-surface);
+            border: 1px solid var(--md-divider);
+        }
+
+        .chip--primary {
+            background: var(--md-primary-light);
+            color: var(--md-primary);
+            border-color: transparent;
+        }
+
+        .chip--small {
+            height: 24px;
+            font-size: 0.75rem;
+            padding: 0 8px;
+        }
+
+        /* KPI */
+        .kpis {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin: 24px 0;
+        }
+
+        .kpi {
+            background: var(--md-surface);
+            border-radius: var(--md-radius-lg);
+            box-shadow: var(--md-shadow-1);
+            padding: 20px;
+        }
+
+        .kpi__label {
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--md-on-surface-med);
+            margin-bottom: 8px;
+        }
+
+        .kpi__value {
+            font-size: 2.25rem;
+            font-weight: 300;
+            color: var(--md-primary);
+            line-height: 1;
+        }
+
+        .kpi__unit {
+            font-size: 1rem;
+            margin-left: 2px;
+            color: var(--md-on-surface-med);
+        }
+
+        .kpi__desc {
+            font-size: 0.75rem;
+            color: var(--md-on-surface-med);
+            margin-top: 6px;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 16px;
+        }
+
+        /* MUI TextField (search) */
+        .textfield {
+            position: relative;
+            display: inline-flex;
+            flex-direction: column;
+        }
+
+        .textfield input {
+            font-family: inherit;
+            font-size: 1rem;
+            color: var(--md-on-surface);
+            background: var(--md-surface);
+            border: 1px solid var(--md-divider);
+            border-radius: var(--md-radius);
+            padding: 10px 14px;
+            outline: none;
+            transition: border-color 150ms;
+            min-width: 240px;
+        }
+
+        .textfield input:focus {
+            border-color: var(--md-primary);
+            border-width: 2px;
+        }
+
+        /* Filter row */
+        .filter-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        /* Depth badge */
+        .depth {
+            display: inline-flex;
+            align-items: center;
+            font-size: 0.6875rem;
+            font-weight: 700;
+            height: 20px;
+            padding: 0 8px;
+            border-radius: 9999px;
+            letter-spacing: 0.04em;
+        }
+
+        .depth--A {
+            background: var(--md-primary);
+            color: #fff;
+        }
+
+        .depth--B {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .depth--C {
+            background: var(--md-surface-variant);
+            color: var(--md-on-surface-med);
+        }
+
+        /* ── Detail Preview ── */
+        .detail {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+
+        .detail__breadcrumb {
+            font-size: 0.875rem;
+            color: var(--md-on-surface-med);
+            margin-bottom: 24px;
+        }
+
+        .detail__breadcrumb a {
+            color: var(--md-primary);
+        }
+
+        .detail__breadcrumb span {
+            margin: 0 4px;
+        }
+
+        .tldr {
+            background: var(--md-primary-light);
+            border-left: 4px solid var(--md-primary);
+            border-radius: 0 var(--md-radius-lg) var(--md-radius-lg) 0;
+            padding: 16px 20px;
+            margin-bottom: 32px;
+        }
+
+        .tldr__label {
+            font-size: 0.6875rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--md-primary);
+            margin-bottom: 6px;
+        }
+
+        .tldr__text {
+            font-size: 0.9375rem;
+            color: var(--md-on-surface);
+            line-height: 1.6;
+        }
+
+        /* MUI Divider */
+        .divider {
+            border: none;
+            border-top: 1px solid var(--md-divider);
+            margin: 32px 0;
+        }
+
+        /* Section title with stepper style */
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .section-num {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--md-primary);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .section-h {
+            font-size: 1.125rem;
+            font-weight: 500;
+        }
+
+        .section-body {
+            font-size: 0.9375rem;
+            line-height: 1.7;
+            color: var(--md-on-surface);
+            padding-left: 40px;
+        }
+
+        /* ── 비교 배너 ── */
+        .banner {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 12px 20px;
+            font-size: 0.875rem;
+            color: #e65100;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* ── Nav indicator ── */
+        .nav-section {
+            background: var(--md-surface);
+            padding: 8px 24px;
+            font-size: 0.75rem;
+            color: var(--md-on-surface-med);
+            border-bottom: 1px solid var(--md-divider);
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 768px) {
+
+            .strengths__grid,
+            .kpis {
+                grid-template-columns: 1fr;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 비교 안내 배너 -->
+    <div class="banner">
+        ⚠ 이 파일은 MUI 스타일 미리보기 전용입니다. 실제 포트폴리오 파일(index.html)은 변경되지 않았습니다.
+    </div>
+
+    <!-- ── AppBar ── -->
+    <header class="appbar">
+        <span class="appbar__title">YJ Portfolio</span>
+        <nav class="appbar__nav">
+            <button class="appbar__btn">Home</button>
+            <button class="appbar__btn">Projects</button>
+            <button class="appbar__btn">Resume</button>
+            <button class="appbar__btn">About</button>
+            <button class="appbar__btn">Contact</button>
+        </nav>
+    </header>
+
+    <!-- ── Hero ── -->
+    <section class="hero">
+        <div class="hero__inner">
+            <div class="hero__overline">Product Manager · 경력 6년 6개월</div>
+            <h1 class="hero__title">
+                신사업 <strong>0→1</strong>부터<br>
+                B2B SaaS <strong>1→N</strong>까지,<br>
+                End-to-End PM
+            </h1>
+            <p class="hero__subtitle">
+                복잡한 도메인에서 핵심 Pain Point를 빠르게 도출하고,<br>
+                비즈니스 가치를 창출하는 올라운더 PM 김윤주입니다.
+            </p>
+            <div class="btn-group">
+                <a href="#" class="btn-contained">프로젝트 보기</a>
+                <button class="btn-outlined">Resume 다운로드</button>
+                <button class="btn-outlined">Contact</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── 강점 ── -->
+    <section class="strengths">
+        <div class="strengths__inner">
+            <h2 class="strengths__title">핵심 강점</h2>
+            <div class="strengths__grid">
+                <div class="paper">
+                    <div class="paper__overline">01 · Discovery</div>
+                    <div class="paper__title">문제 정의 능력</div>
+                    <p class="paper__body">VOC·데이터·인터뷰를 조합해 표면 이면의 근본 문제를 찾아내고, 연역적 논리로 솔루션 방향을 결정합니다.</p>
+                </div>
+                <div class="paper">
+                    <div class="paper__overline">02 · Execution</div>
+                    <div class="paper__title">End-to-End 실행</div>
+                    <p class="paper__body">기획→개발 협업→QA→배포→운영 전 단계를 혼자서도 끌고 갈 수 있는 실행력.</p>
+                </div>
+                <div class="paper">
+                    <div class="paper__overline">03 · Domain</div>
+                    <div class="paper__title">도메인 적응력</div>
+                    <p class="paper__body">항공 B2B SaaS, 팬덤 C2C 플랫폼, 콘텐츠 세일즈, IP 라이선스까지 다양한 도메인 경험.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Projects Hub ── -->
+    <section class="projects">
+        <div class="projects__inner">
+            <div class="overline">Projects Hub</div>
+            <h2 class="h5">모든 프로젝트 13개</h2>
+
+            <!-- MUI Tabs (필터) -->
+            <div class="tabs">
+                <button class="tab active">전체</button>
+                <button class="tab">타이드스퀘어</button>
+                <button class="tab">CJ ENM · 크낵</button>
+                <button class="tab">CJ ENM · 콘텐츠</button>
+                <button class="tab">더핑크퐁</button>
+            </div>
+
+            <!-- 검색 + Depth 필터 -->
+            <div class="filter-row">
+                <div class="textfield">
+                    <input type="search" placeholder="🔍  프로젝트 검색..." />
+                </div>
+                <div style="display:flex;gap:6px;flex-wrap:wrap;">
+                    <button class="chip chip--primary">Depth A · Case Study</button>
+                    <button class="chip">Depth B · Standard</button>
+                    <button class="chip">Depth C · Snapshot</button>
+                </div>
+            </div>
+
+            <!-- 카드 그리드 (3개 샘플) -->
+            <div class="card-grid">
+                <!-- Card 1 -->
+                <div class="card">
+                    <div class="card__header">
+                        <div class="card__avatar">TS</div>
+                        <div class="card__meta">
+                            <div class="card__company">타이드스퀘어</div>
+                            <div class="card__title">Luna 제품 커버리지 확장</div>
+                        </div>
+                    </div>
+                    <div class="card__content">
+                        <p class="card__body">항공 예약 핸들링 커버리지를 40→90%로 확대하고, 신규 파트너 7개사를 추가 연동하여 SaaS 세일즈 기회를 대폭 넓혔다.</p>
+                    </div>
+                    <div class="card__footer">
+                        <span class="card__period">2024.10 – 재직 중</span>
+                        <div style="display:flex;gap:4px;align-items:center;">
+                            <span class="depth depth--A">Depth A</span>
+                            <span class="chip chip--small">B2B SaaS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="card">
+                    <div class="card__header">
+                        <div class="card__avatar" style="background:#f3e5f5;color:#7b1fa2;">CJ</div>
+                        <div class="card__meta">
+                            <div class="card__company">CJ ENM · 크낵</div>
+                            <div class="card__title">크낵 런칭 (0→1): MVP · 베타 · 사업화</div>
+                        </div>
+                    </div>
+                    <div class="card__content">
+                        <p class="card__body">팬덤 시장의 저작권 Pain Point를 발견하고 C2C 팬메이드 굿즈 거래 플랫폼 크낵을 기획·런칭. 거래액 5.6억 달성.</p>
+                    </div>
+                    <div class="card__footer">
+                        <span class="card__period">2022.04 – 2024.10</span>
+                        <div style="display:flex;gap:4px;align-items:center;">
+                            <span class="depth depth--A">Depth A</span>
+                            <span class="chip chip--small">Platform</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="card">
+                    <div class="card__header">
+                        <div class="card__avatar" style="background:#e8f5e9;color:#2e7d32;">CJ</div>
+                        <div class="card__meta">
+                            <div class="card__company">CJ ENM · 크낵</div>
+                            <div class="card__title">사업 관리 · 재무 프로세스 수립</div>
+                        </div>
+                    </div>
+                    <div class="card__content">
+                        <p class="card__body">사내벤처 3개년 시뮬레이션, 예산 수립/집행, 재무회계·정산 프로세스 확보로 사업화 기반을 마련했다.</p>
+                    </div>
+                    <div class="card__footer">
+                        <span class="card__period">2022.04 – 2024.10</span>
+                        <div style="display:flex;gap:4px;align-items:center;">
+                            <span class="depth depth--B">Depth B</span>
+                            <span class="chip chip--small">BizOps</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Detail 미리보기 ── -->
+    <div style="background:var(--md-background);border-top:1px solid var(--md-divider);">
+        <div class="nav-section">↓ 프로젝트 상세 페이지 미리보기</div>
+        <div class="detail">
+            <div class="detail__breadcrumb">
+                <a href="#">Home</a><span>/</span>
+                <a href="#">Projects</a><span>/</span>
+                <span style="color:var(--md-on-surface)">Luna 제품 커버리지 확장</span>
+            </div>
+
+            <!-- Header chips -->
+            <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;">
+                <span class="depth depth--A">Depth A · Case Study</span>
+                <span class="chip chip--small">B2B SaaS</span>
+                <span class="chip chip--small">Aviation</span>
+                <span class="chip chip--small">Automation</span>
+            </div>
+
+            <h1 style="font-size:2rem;font-weight:300;letter-spacing:-0.01em;margin-bottom:8px;">Luna 제품 커버리지 확장</h1>
+            <p style="color:var(--md-on-surface-med);margin-bottom:32px;">예약 핸들링 고도화 및 신규 파트너 연동 · 타이드스퀘어 · 2024.10 – 재직
+                중</p>
+
+            <!-- TL;DR -->
+            <div class="tldr">
+                <div class="tldr__label">TL;DR</div>
+                <p class="tldr__text">항공 예약 핸들링 커버리지를 40→90%로 확대하고, 신규 파트너 7개사를 추가 연동하여 SaaS 세일즈 기회와 고객 유치 기반을 대폭 넓혔다.
+                </p>
+            </div>
+
+            <!-- KPI -->
+            <div class="kpis">
+                <div class="kpi">
+                    <div class="kpi__label">핸들링 커버리지</div>
+                    <div class="kpi__value">90<span class="kpi__unit">%</span></div>
+                    <div class="kpi__desc">40% → 90% 달성</div>
+                </div>
+                <div class="kpi">
+                    <div class="kpi__label">신규 항공사 연동</div>
+                    <div class="kpi__value">7<span class="kpi__unit">개사</span></div>
+                    <div class="kpi__desc">Content 풀 확대</div>
+                </div>
+                <div class="kpi">
+                    <div class="kpi__label">연동 생산성</div>
+                    <div class="kpi__value">2.5<span class="kpi__unit">×</span></div>
+                    <div class="kpi__desc">스키마 표준화 효과</div>
+                </div>
+            </div>
+
+            <hr class="divider" />
+
+            <!-- 문제 정의 섹션 (Stepper 스타일) -->
+            <div style="margin-bottom:32px;">
+                <div class="section-title">
+                    <div class="section-num">1</div>
+                    <div class="section-h">문제 정의</div>
+                </div>
+                <div class="section-body">
+                    <p>OTA 파트너사를 위한 항공 예약관리 백오피스 'Luna'는 단순 즉시 발권·취소만 지원했다. 좌석/수하물 구매, 여정 변경 등 실무에서 빈번히 발생하는 핸들링 케이스를
+                        커버하지 못해 고객사가 별도 시스템을 병행 운용했다.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
