@@ -1,20 +1,20 @@
 /* ============================================================
-   shadcn/ui 미학 기반 스타일
-   - 폰트: Inter + Noto Sans KR
-   - 컬러: HSL 뉴트럴 팔레트 (shadcn/ui 변수 기반)
-   - 보더: 1px 라운드(rounded), 그림자 최소화
-   - 키워드: 담백, 가독성, 콘텐츠 중심
+   shadcn/ui 沃섎챸釉?疫꿸퀡而??????
+   - ?怨좊뱜: Inter + Noto Sans KR
+   - ?뚎됱쑎: HSL ??꾨뱜???遺얠쟿??(shadcn/ui 癰궰??疫꿸퀡而?
+   - 癰귣??? 1px ??깆뒲??rounded), 域밸챶???筌ㅼ뮇???
+   - ??쇱뜖?? ??媛? 揶쎛??녾쉐, ?꾩꼹?쀯㎘?餓λ쵐??
    ============================================================ */
 
-/* --- Design Tokens (shadcn/ui 변수) --- */
+/* --- Design Tokens (shadcn/ui 癰궰?? --- */
 :root {
-  /* 컬러: #4EA8DE(소프트 틸) + #F5F5F5(연회색) */
+  /* ?뚎됱쑎: #4EA8DE(??곕늄???? + #F5F5F5(?怨좎돳?? */
   --background: hsl(0 0% 96%);
-  /* #F5F5F5 연회색 배경 */
+  /* #F5F5F5 ?怨좎돳??獄쏄퀗瑗?*/
   --foreground: hsl(215 25% 15%);
 
   --card: hsl(0 0% 100%);
-  /* 카드는 순백 */
+  /* 燁삳?諭????뺢컶 */
   --card-foreground: hsl(215 25% 15%);
 
   --popover: hsl(0 0% 100%);
@@ -61,7 +61,7 @@
   --max-w: 1200px;
   --nav-h: 56px;
   --px: clamp(24px, 5vw, 48px);
-  /* 반응형 수평 여백 */
+  /* 獄쏆꼷?????묐즸 ??媛?*/
 
   /* Transition */
   --ease: 150ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -846,7 +846,7 @@ a:hover {
 }
 
 .detail-section__body ul li::before {
-  content: '–';
+  content: '\2013';
   position: absolute;
   left: 0;
   color: var(--muted-foreground);
@@ -1015,7 +1015,7 @@ a:hover {
   line-height: 1.4;
 }
 
-/* Collaboration box — 틸 계열 */
+/* Collaboration box ?????④쑴肉?*/
 .collab-box {
   background: hsl(203 60% 96%);
   border: 1px solid hsl(203 50% 82%);
@@ -1109,7 +1109,7 @@ a:hover {
   letter-spacing: -0.01em;
 }
 
-/* --- Experience Timeline (홈 원페이지) --- */
+/* --- Experience Timeline (???癒곕읂???) --- */
 .experience-list {
   display: flex;
   flex-direction: column;
@@ -1167,7 +1167,7 @@ a:hover {
   line-height: 1.6;
 }
 
-/* --- Detailed Experience Blocks (접기/펼치기) --- */
+/* --- Detailed Experience Blocks (?臾롫┛/??깊뒄疫? --- */
 .exp-detail-list {
   display: flex;
   flex-direction: column;
@@ -1239,7 +1239,7 @@ a:hover {
   border-bottom: none;
 }
 
-/* 프로젝트 아이템 */
+/* ?袁⑥쨮??븍뱜 ?袁⑹뵠??*/
 .exp-project {
   padding: var(--sp-5) 0;
   border-bottom: 1px solid var(--border);
@@ -1274,7 +1274,7 @@ a:hover {
 }
 
 .exp-project__list li::before {
-  content: '·';
+  content: '\00B7';
   position: absolute;
   left: 4px;
   font-weight: 700;
@@ -1354,7 +1354,7 @@ a:hover {
 }
 
 .resume-role-desc li::before {
-  content: '·';
+  content: '\00B7';
   position: absolute;
   left: 0;
 }
