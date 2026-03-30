@@ -77,26 +77,25 @@ const expBlocks: ExpBlock[] = [
     period: '2024.10 – 재직 중',
     projects: [
       {
-        title: '항공 Aggregator 플랫폼 – 국내 최초 NDC Aggregator 플랫폼 Halo 내 운영 대시보드 LUNA 기획 총괄',
+        title: '항공권 예약관리 백오피스 \'Luna\' 런칭 및 고도화',
         bullets: [
-          'API 서비스 및 고객 니즈 분석을 통한 프로젝트 범위 선정 및 요구사항 수립',
-          '예약/취소/환불/변경 등 항공권 사후처리 프로세스 시스템화',
-          '운영 효율화 기능 설계',
+          '예약 발권, 취소, PNR 상세 조회, 변경 등 90% 사후처리 프로세스 커버리지 달성',
+          '항공사별 상이한 운임/발권 데이터 구조 분석 및 스키마 매핑 정책 정의',
         ],
-        highlight: '예약 핸들링 커버리지 40% → 90% 확대, 신규 파트너 7개사 연동 (생산성 2.5배)',
+        highlight: '에스컬레이션 70% 감소, 운영 업무 처리 속도 30% 개선, SaaS 신규 거래처 리텐율 20% 증가',
       },
       {
-        title: '다국어(i18n) 시스템 + 텍스트 관리 자동화',
-        bullets: ['다국어 운영 체계 설계 및 AI 기반 번역 자동화 도입'],
-        highlight: 'Human Error 약 30% 저감',
+        title: '글로벌 i18n 시스템 구축 및 텍스트 관리 자동화',
+        bullets: ['텍스트 Key 네이밍 표준화 및 AI 기반 텍스트 관리 웹 도구 기획/개발'],
+        highlight: 'Human Error 30% 저감, 다국어 전환으로 해외 미팅 수 월 5건 이상',
       },
       {
-        title: 'RBAC + User LifeCycle + PCI-DSS 대응',
-        bullets: ['3단계 RBAC, 5단계 LifeCycle, MFA · 세션 정책 도입', 'PCI-DSS 보안 인증 대응 기획'],
+        title: 'B2B SaaS 계정 보안 체계 설계 (RBAC/PCI-DSS)',
+        bullets: ['권한 3단계 구분, 상태 코드 6단계 / 12개 전이 경로 설계', 'PCI-DSS 미충족 요건 19건 분석 및 MFA, 유휴 세션 등 보안성 강화'],
       },
       {
-        title: 'AI 기반 항공 API 연동 자동화 & 화이트레이블 PoC',
-        bullets: ['신규 항공사 온보딩 리드타임 3개월→2주 단축 목표 PoC', 'RAG 200+ Edge Case 구조화'],
+        title: '항공권 예약 API MCP PoC 참여',
+        bullets: ['AI 에이전트 연동용 대화 흐름 설계 및 자연어-API 매핑', '다기능 모호성 제어(Edge Case) 처리 및 프롬프트 가이드라인 작성'],
       },
     ],
   },
@@ -109,12 +108,12 @@ const expBlocks: ExpBlock[] = [
       {
         title: '크낵 런칭 (0→1): MVP · 베타 · 사업화',
         bullets: ['팬덤 시장의 저작권 Pain Point 발견 → C2C 팬메이드 굿즈 거래 플랫폼 기획 · 런칭', '정량 설문 200명, 정성 인터뷰 30건 기반 MVP 설계'],
-        highlight: '크리에이터 248명, 거래액 5.6억, 구매전환율 46%',
+        highlight: '누적 거래액 5.6억, 크리에이터 250명 발굴, 누적 회원수 11,668명',
       },
       {
         title: '크낵 고도화 (1→N)',
-        bullets: ['구매 퍼널 분석 기반 UX 개선, 판매자 등록 프로세스 최적화'],
-        highlight: '구매 전환율 41% 개선, 판매자 등록율 84% 개선',
+        bullets: ['구매 퍼널 분석 기반 모달 UX 개선 및 판매자 아카이빙 도입, 관리자 시스템 연동 자동화'],
+        highlight: '결제 시도 방어율 41% 개선, 판매자 등록율 84% 개선, 관리자 업로드 처리량 3배 증가',
       },
       {
         title: '사업 관리 · 운영 + 정산/재무 프로세스',
@@ -171,7 +170,7 @@ export default function HomePage() {
       {/* ═══ 01. Hero ═══ */}
       <section className="hero" id="hero">
         <div className="hero__inner">
-          <div className="hero__eyebrow">Product Manager · 경력 6년 6개월</div>
+          <div className="hero__eyebrow">Product Manager · 경력 6년 7개월</div>
           <h1 className="hero__title">
             신사업 <em>0→1</em>부터<br />
             B2B SaaS <em>1→N</em>까지,<br />
@@ -179,11 +178,12 @@ export default function HomePage() {
           </h1>
           <p className="hero__subtitle">
             복잡한 도메인에서 핵심 Pain Point를 빠르게 도출하고, 비즈니스 가치를 창출하는 올라운더 PM 김윤주입니다.<br /><br />
+            <strong>누적 거래액 5.6억, 팬 Creator 발굴 250명, 에스컬레이션 70% 감소, 결제 전환율 41% 개선 성과 보유</strong><br /><br />
             회원/인증, 어드민 시스템 기획, 다국어 자동화에 역량을 갖추고 있으며,
             스프린트 협업과 유관부서 커뮤니케이션을 통해 실행력 높은 제품을 만들어 왔습니다.
           </p>
           <div className="btn-group">
-            <a href="/김윤주_경력기술서(2026).pdf" download className="bx--btn bx--btn--primary">
+            <a href="/김윤주 경력기술서(2026_v3.0).pdf" download className="bx--btn bx--btn--primary">
               이력서 다운로드
             </a>
             <a href="#contact-section" className="bx--btn bx--btn--ghost" onClick={handleContactScroll}>
